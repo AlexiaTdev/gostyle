@@ -1,0 +1,12 @@
+{
+  "name": "goStyle",
+  "displayName": "goStyle",
+  "expo": {
+    "name": "goStyle",
+    "slug": "goStyle",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
