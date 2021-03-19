@@ -131,12 +131,20 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    defaultConfig {
+    /**defaultConfig {
         applicationId "com.gostyle"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+    }**/
+    defaultConfig {
+         applicationId "com.gostyle"
+         minSdkVersion rootProject.ext.minSdkVersion
+         missingDimensionStrategy 'react-native-camera', 'general'
+         targetSdkVersion rootProject.ext.targetSdkVersion
+         versionCode 1
+         versionName "1.0"
     }
     splits {
         abi {
