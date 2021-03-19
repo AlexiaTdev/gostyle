@@ -9,7 +9,7 @@ export default function ListComponent() {
     <View style={styles.container}>
         <SectionList
           sections={[
-            {title: 'Alimentation', data: ['huile de pépin de raisin', 'farine protéinée']},
+            {title: 'Alimentation', data: ['boisson énergisante', 'farine protéinée']},
             {title: 'Vetement', data: ['sweet a capuche']},
           ]}
           renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
@@ -37,9 +37,12 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     height: 44,
+    backgroundColor: 'rgba(247,247,247,1.0)',
   },
 })
 
+
+// https://cdn.mcommerce.franprix.fr/product-images/3770008107038_A1CK_s01
 
 /**resizeMode: "cover", 
  *     <StatusBar style="auto" />

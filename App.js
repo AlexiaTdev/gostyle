@@ -10,14 +10,18 @@ export default function App() {
     <View style={styles.container}>
       <ImageBackground source={require('./src/home2.jpg')} style={styles.image}>
         <View style={styles.container}>
-          <Text style={styles.head}>GO STYLE!
+          <View style={styles.containerRow}>
+            <Text style={styles.head}>GO STYLE! </Text>
             <Button style={styles.qrCode} title='Get QRCode'></Button>
-          </Text>
-          <ListComponent style={styles.compoList}/>
+          </View>
         </View>
+        <View style={styles.compoList}>
+          <ListComponent />
+        </View>
+        
         <Image source={require('./src/goutelettes.gif')}  style={styles.gifdefeu}></Image>
         <Image source={require('./src/goutelettes.gif')}  style={styles.gifdefeudroite}></Image>
-      </ImageBackground>      
+      </ImageBackground>
     </View>
   );
 }
@@ -44,21 +48,25 @@ const styles = StyleSheet.create({
     width: '200px'
   },
   compoList: {
-    justifyContent: "center",
+    flex: 1,
+    width: '60%',
     alignItems: 'center',
   },
   gifdefeu: {
     flex: 1,
     justifyContent: "center",
     width: '200px',
-    droite: {
-      alignItems: 'right'
-    }
   },
   gifdefeudroite: {
     alignItems: 'right',
     flex: 1,
     width: '200px',
+  },
+  containerRow: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: '10%',
   }
 
   
