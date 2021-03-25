@@ -6,9 +6,9 @@ import { SectionList, ImageBackground, Button, StyleSheet, Text, View } from 're
 
 export default function ListComponent() {
 
-  myJson = [
+  const myJson = [
     {title: 'Alimentation', data: ['boisson énergisante', 'farine protéinée']},
-  {title: 'Vetement', data: ['sweet a capuche']}
+    {title: 'Vetement', data: ['sweet a capuche']}
   ];
 
   /**const userAction = async () => {
@@ -17,15 +17,10 @@ export default function ListComponent() {
     
   }*/
 
-
-
   return (
     <View style={styles.container}>
         <SectionList
-          sections={[
-            {title: 'Alimentation', data: ['boisson énergisante', 'farine protéinée']},
-            {title: 'Vetement', data: ['sweet a capuche']},
-          ]}
+          sections={myJson}
           renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
           renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
           keyExtractor={(item, index) => index}
