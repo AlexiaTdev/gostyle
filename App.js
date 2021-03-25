@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   compoList: {
     flex: 1,
-    width: '60%',
+    width: '80%',
     alignItems: 'center',
   },
   gifdefeu: {

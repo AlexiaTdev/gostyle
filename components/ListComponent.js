@@ -5,6 +5,20 @@ import { SectionList, ImageBackground, Button, StyleSheet, Text, View } from 're
 
 
 export default function ListComponent() {
+
+  myJson = [
+    {title: 'Alimentation', data: ['boisson énergisante', 'farine protéinée']},
+  {title: 'Vetement', data: ['sweet a capuche']}
+  ];
+
+  /**const userAction = async () => {
+    const response = await fetch('http://example.com/movies.json');
+    const myJson = await response.json();
+    
+  }*/
+
+
+
   return (
     <View style={styles.container}>
         <SectionList
@@ -18,6 +32,11 @@ export default function ListComponent() {
         />
     </View>
   );
+  
+  
+
+
+
 }
 const styles = StyleSheet.create({
   container: {
