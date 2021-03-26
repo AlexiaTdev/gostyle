@@ -1,29 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { Image, ImageBackground, Button, StyleSheet, Text, View } from 'react-native';
-import ListComponent from './components/ListComponent.js'
 import LienAPI from './pages/lienApi'
 
 
 
-export default function App(){
-
-  
-
-
+class App extends React.Component{
+  render(){
   return (
     <View style={styles.container}>
       <ImageBackground source={require('./src/home2.jpg')} style={styles.image}>
         <View style={styles.container}>
           <View style={styles.containerRow}>
             <Text style={styles.head}>GO STYLE! </Text>
-            <Button style={styles.qrCode} title='Get QRCode'>
+            <Button style={styles.qrCode} title='Get QRCode' onPress={()=>this.props.navigation.navigate('Camera')}>
             </Button>
             <LienAPI  />
           </View>
         </View>
         <View style={styles.compoList}>
-          <ListComponent />
         </View>
         
         <Image source={require('./src/goutelettes.gif')}></Image>
@@ -31,6 +26,7 @@ export default function App(){
       </ImageBackground>
     </View>
   )
+  }
 }
 
 
@@ -100,3 +96,4 @@ const styles = StyleSheet.create({
   
 });
 */
+export default App
