@@ -26,8 +26,8 @@ export default function App(){
           <ListComponent />
         </View>
         
-        <Image source={require('./src/goutelettes.gif')}  style={styles.gifdefeu}></Image>
-        <Image source={require('./src/goutelettes.gif')}  style={styles.gifdefeudroite}></Image>
+        <Image source={require('./src/goutelettes.gif')}></Image>
+        <Image source={require('./src/goutelettes.gif')}></Image>
       </ImageBackground>
     </View>
   )
@@ -52,23 +52,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   qrCode: {
-    width: '200px'
+    width: '30%'
   },
   compoList: {
     flex: 1,
     width: '80%',
     alignItems: 'center',
   },
-  gifdefeu: {
-    flex: 1,
-    justifyContent: "center",
-    width: '200px',
-  },
-  gifdefeudroite: {
-    alignItems: 'right',
-    flex: 1,
-    width: '200px',
-  },
+
   containerRow: {
     flex: 1,
     flexDirection: 'row',
