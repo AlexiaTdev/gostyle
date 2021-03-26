@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//import Promos from '../components/getPromos.js'
-import Promos from '../components/ListComponent.js';
+import Promos from '../components/getPromos.js'
+//import Promos from '../components/ListComponent.js';
 
 class lienApi extends Component {
 
