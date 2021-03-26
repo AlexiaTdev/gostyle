@@ -4,7 +4,7 @@ import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity }
 
 
 
-export default function ListComponent() {
+export default function ListComponent({promo}) {
 
   /**
    * {promo}
@@ -50,7 +50,7 @@ export default function ListComponent() {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={newDataJson}
+        data={promo}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         extraData={selectedId}

@@ -17,7 +17,8 @@ export default function App(){
           </View>
         </View>
         <View style={styles.compoList}>
-          <ListComponent />
+          
+          <LienAPI />
           
         </View>
         
@@ -67,6 +68,7 @@ const styles = StyleSheet.create({
 });
 
 /**            <LienAPI />
+ * <ListComponent />
  *         
  * resizeMode: "cover", 
  *     <StatusBar style="auto" />
