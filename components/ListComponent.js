@@ -1,59 +1,160 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SectionList, ImageBackground, Button, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+
 
 
 
 export default function ListComponent() {
 
-  const myJson = [
-    {title: 'Alimentation', data: ['boisson énergisante', 'farine protéinée']},
-    {title: 'Vetement', data: ['sweet a capuche']}
-  ];
+  /**
+   * {promo}
+   */
 
-  /**const userAction = async () => {
-    const response = await fetch('http://example.com/movies.json');
-    const myJson = await response.json();
-    
-  }*/
+  const newDataJson = [
+    {
+        _id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+        QRCodePromo: "azerty",
+        codePromo: "lidl1",
+        reduction: "1000%"
+    },
+    {
+        _id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+        QRCodePromo: "qwerty",
+        codePromo: "lidl",
+        reduction: "10%"
+    }
+  ]
+  const Item = ({ item, onPress, backgroundColor, textColor }) => (
+    <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+      <Text style={[styles.title, textColor]}>{item.codePromo}</Text>
+      <Text style={[styles.title, textColor]}>{item.reduction}</Text>
+    </TouchableOpacity>
+  );
+
+    const [selectedId, setSelectedId] = useState(null);
+  
+    const renderItem = ({ item }) => {
+      const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
+      const color = item.id === selectedId ? 'white' : 'black';
+  
+      return (
+        <Item
+          item={item}
+          onPress={() => setSelectedId(item.id)}
+          backgroundColor={{ backgroundColor }}
+          textColor={{ color }}
+        />
+      );
+    };
 
   return (
-    <View style={styles.container}>
-        <SectionList
-          sections={myJson}
-          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-          keyExtractor={(item, index) => index}
-        />
-    </View>
-  );
-  
-  
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={newDataJson}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        extraData={selectedId}
+      />
+    </SafeAreaView>
+  )
 
 
 
 }
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   paddingTop: 22
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-    backgroundColor: 'rgba(247,247,247,1.0)',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
   },
-})
+  title: {
+    fontSize: 32,
+  },
+});
+
+
+
+
+
+/**
+ * import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+
+const DATA = [
+  {
+    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+    title: "First Item",
+  },
+  {
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Second Item",
+  },
+  {
+    id: "58694a0f-3da1-471f-bd96-145571e29d72",
+    title: "Third Item",
+  },
+];
+
+const Item = ({ item, onPress, backgroundColor, textColor }) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+    <Text style={[styles.title, textColor]}>{item.title}</Text>
+  </TouchableOpacity>
+);
+
+const App = () => {
+  const [selectedId, setSelectedId] = useState(null);
+
+  const renderItem = ({ item }) => {
+    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
+    const color = item.id === selectedId ? 'white' : 'black';
+
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        backgroundColor={{ backgroundColor }}
+        textColor={{ color }}
+      />
+    );
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        extraData={selectedId}
+      />
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+ * 
+ * 
+ */
+
+
+
+
 
 
 // https://cdn.mcommerce.franprix.fr/product-images/3770008107038_A1CK_s01
@@ -86,3 +187,29 @@ const styles = StyleSheet.create({
   
 });
 */
+
+/**
+ * const styles = StyleSheet.create({
+  container: {
+   flex: 1,
+   paddingTop: 22
+  },
+  sectionHeader: {
+    paddingTop: 2,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(247,247,247,1.0)',
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+    backgroundColor: 'rgba(247,247,247,1.0)',
+  },
+})
+ * 
+ * 
+ */

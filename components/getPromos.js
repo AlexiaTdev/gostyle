@@ -2,7 +2,13 @@ import React from 'react'
 
 const GetPromos = ({ promos }) => {
     return (
-    <div>
+        <Text>Liste des promos</Text>
+    
+    )
+};
+
+/**
+ * <div>
         <center><h1>Liste des promos</h1></center>
         {promos.map((promo) => (
         <div class="promo">
@@ -13,7 +19,9 @@ const GetPromos = ({ promos }) => {
         </div>
         ))}
     </div>
-    )
-};
+ * 
+ * 
+ */
+
 
 export default GetPromos;
