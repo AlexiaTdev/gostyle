@@ -2,6 +2,7 @@
     const express = require('express');
     const app = express();
     const port = 3000;
+    var cors = require('cors');
     
     const { MongoClient,ObjectID } = require('mongodb');
     
@@ -10,6 +11,7 @@
     
     const CodePromo = db.collection('CodePromo');
     app.use(express.json()); 
+    app.use(cors());
     
     app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -19,11 +21,13 @@
     console.log(`Example app listening at http://localhost:${port}`);
     })
     
-    app.post('/codepromo', async(req, res) => {
+    app.get('/codepromo', async(req, res) => {
     
         const QRCodePromo = req.body.codePromo ? req.body.QRCodePromo: null;
     
-        const promoResponse = await CodePromo.find({QRCodePromo:QRCodePromo},{projection:{reduction:1,_id:0,codePromo:1}});
+        //const promoResponse = await CodePromo.find({QRCodePromo:QRCodePromo},{projection:{reduction:1,_id:0,codePromo:1}}).toArray();
+        const promoResponse = await CodePromo.find({},{projection:{reduction:1,_id:0,codePromo:1}}).toArray();
+    
     
         res.type('application/json');
         res.status(200).json(promoResponse);
