@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Camera, Permissions } from 'expo';
 
-import styles from './styles';
+import styles from '../styles';
 
 export default class CameraPage extends React.Component {
     camera = null;
