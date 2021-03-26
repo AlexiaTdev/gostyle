@@ -1,40 +1,47 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Camera, Permissions } from 'expo';
+import { BarCodeScanner } from 'expo-barcode-scanner';
 
 import styles from '../styles';
 
-export default class CameraPage extends React.Component {
-    camera = null;
+export default function CameraPage () {
+    
+    const [hasPermission, setHasPermission] = useState(null);
+  const [scanned, setScanned] = useState(false);
 
-    state = {
-        hasCameraPermission: null,
-    };
+  useEffect(() => {
+    (async () => {
+      const { status } = await BarCodeScanner.requestPermissionsAsync();
+      setHasPermission(status === 'granted');
+    })();
+  }, []);
 
-    async componentDidMount() {
-        const camera = await Permissions.askAsync(Permissions.CAMERA);
-        const audio = await Permissions.askAsync(Permissions.AUDIO_RECORDING);
-        const hasCameraPermission = (camera.status === 'granted' && audio.status === 'granted');
+  const handleBarCodeScanned = ({ type, data }) => {
+    setScanned(true);
+         alert(`type de code ${type} !! data  ${data} (string) scannée`);
+  };
 
-        this.setState({ hasCameraPermission });
-    };
+  if (hasPermission === null) {
+    return <Text>Demande d'autorisation de caméra</Text>;
+  }
+  if (hasPermission === false) {
+    return <Text>Pas d'accés à la caméra</Text>;
+  }
 
-    render() {
-        const { hasCameraPermission } = this.state;
-
-        if (hasCameraPermission === null) {
-            return <View />;
-        } else if (hasCameraPermission === false) {
-            return <Text>Accès caméra refusé.</Text>;
-        }
-
-        return (
-            <View>
-                <Camera
-                    style={styles.preview}
-                    ref={camera => this.camera = camera}
-                />
-            </View>
-        );
-    };
-};
+  return (
+    <View style={styles.container}>
+      <BarCodeScanner
+        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        style={StyleSheet.absoluteFillObject}
+      />
+      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+    },
+  });
