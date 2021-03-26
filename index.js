@@ -1,6 +1,6 @@
 import { registerRootComponent } from 'expo';
 
-import Router from './RouterSpe';
+import App from './Router.js';
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
 // It also ensures that whether you load the app in the Expo client or in a native build,
