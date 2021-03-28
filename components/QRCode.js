@@ -1,37 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { Image, ImageBackground, Button, StyleSheet, Text, View } from 'react-native';
-import LienAPI from './pages/lienApi'
+import {   Button, StyleSheet, Text, View } from 'react-native';
 
 
-
-class App extends React.Component{
+class QRCode extends React.Component{
   constructor(props){
     super(props);
     this.state = {qrCode:" "};
   }
 
- 
+  componentDidMount(){
+    //const qrCode= this.props.route.params.data;
+    
+
+    this.setState({qrCode:"q"});
+  }
+
   render(){
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('./src/home2.jpg')} style={styles.image}>
         <View style={styles.container}>
           <View style={styles.containerRow}>
             <Text style={styles.head}>GO STYLEE! </Text>
-            <Text style={styles.head}>{this.props.route.params==undefined?"":this.props.route.params.data} </Text>
+            <Text style={styles.head}>{this.props.route.params.data?this.props.route.params.data:"1"} </Text>
             <Button style={styles.qrCode} title='Get QRCode' onPress={()=>this.props.navigation.navigate('Camera')}>
             </Button>
-           
           </View>
         </View>
         <View style={styles.compoList}>
-        <LienAPI  qrCode={this.props.route.params==undefined?"":this.props.route.params.data}/>
         </View>
         
-        <Image source={require('./src/goutelettes.gif')}></Image>
-        <Image source={require('./src/goutelettes.gif')}></Image>
-      </ImageBackground>
     </View>
   )
   }
@@ -104,4 +102,4 @@ const styles = StyleSheet.create({
   
 });
 */
-export default App
+export default QRCode
