@@ -12,18 +12,27 @@ export default function ListComponent({promo}) {
 
   const newDataJson = [
     {
-        _id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-        QRCodePromo: "azerty",
-        codePromo: "lidl1",
-        reduction: "1000%"
+        "QRCodePromo": "azerty",
+        "codePromo": "T-SHIRT anti transpiration",
+        "reduction": "20%"
     },
     {
-        _id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-        QRCodePromo: "qwerty",
-        codePromo: "lidl",
-        reduction: "10%"
+        "QRCodePromo": "qwerty",
+        "codePromo": "Bandana réhausseur d'énergie",
+        "reduction": "30%"
+    },
+    {
+        "QRCodePromo": "namana",
+        "codePromo": "chaussettes anti gravitationnelles",
+        "reduction": "40%"
+    },
+    {
+        "QRCodePromo": "lumulu",
+        "codePromo": "maillot flottant",
+        "reduction": "50%"
     }
   ]
+  
   const Item = ({ item, onPress, backgroundColor, textColor }) => (
     <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
       <Text style={[styles.title, textColor]}>{item.codePromo}</Text>

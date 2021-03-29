@@ -9,21 +9,8 @@ class lienApi extends Component {
     promos: []
   }
 
-
-/*componentWillReceiveProps(){
-  console.log("avantw")
-  console.log(this.props.qrCode)
-  console.log("apresww")
-  fetch('http://192.168.137.1:3000/codepromo/'+this.props.qrCode)
-  .then(res => res.json())
-  .then((data) => {
-    this.setState({ promos: data })
-  })
-  .catch(console.log)
-}*/
-
   componentDidMount() {
-    fetch('http://192.168.137.1:3000/codepromo/'+this.props.qrCode)
+    fetch('http://192.168.2.209:3000/codepromo/'+this.props.qrCode)
     .then(res => res.json())
     .then((data) => {
       this.setState({ promos: data })
@@ -32,7 +19,7 @@ class lienApi extends Component {
   }
   
   render() {
-    fetch('http://192.168.137.1:3000/codepromo/'+this.props.qrCode)
+    fetch('http://192.168.2.209:3000/codepromo/'+this.props.qrCode)
     .then(res => res.json())
     .then((data) => {
       this.setState({ promos: data })
