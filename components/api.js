@@ -21,12 +21,24 @@
     console.log(`Example app listening at http://localhost:${port}`);
     })
     
-    app.get('/codepromo', async(req, res) => {
+    /*app.get('/codepromo', async(req, res) => {
     
         const QRCodePromo = req.body.codePromo ? req.body.QRCodePromo: null;
     
         //const promoResponse = await CodePromo.find({QRCodePromo:QRCodePromo},{projection:{reduction:1,_id:0,codePromo:1}}).toArray();
         const promoResponse = await CodePromo.find({},{projection:{reduction:1,_id:0,codePromo:1}}).toArray();
+    
+    
+        res.type('application/json');
+        res.status(200).json(promoResponse);
+    })*/
+
+    app.get('/codepromo/:QRCodePromo', async(req, res) => {
+    
+        const QRCodePromo = req.body.codePromo ? req.body.QRCodePromo: null;
+    
+        //const promoResponse = await CodePromo.find({QRCodePromo:QRCodePromo},{projection:{reduction:1,_id:0,codePromo:1}}).toArray();
+        const promoResponse = await CodePromo.find({QRCodePromo:req.params.QRCodePromo},{projection:{reduction:1,_id:0,codePromo:1}}).toArray();
     
     
         res.type('application/json');
