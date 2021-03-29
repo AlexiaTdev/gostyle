@@ -80,35 +80,4 @@ const styles = StyleSheet.create({
   
 });
 
-/**            <LienAPI /><LienAPI />
- * <ListComponent />
- *         
- * resizeMode: "cover", 
- *     <StatusBar style="auto" />
- * 
- * const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  },
-  image: {
-    flex: 1,
-    justifyContent: "center",
-    width: "100%"
-  },
-  head: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold'
-  },
-  qrCode: {
-    width: '20px'
-  }
-  
-});
-*/
 export default App
