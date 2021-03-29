@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
   compoList: {
     flex: 1,
-    width: '80%',
+    width: '100%',
     alignItems: 'center',
   },
 
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingBottom: '10%',
   }
-
   
 });
 
