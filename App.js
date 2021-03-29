@@ -22,9 +22,9 @@ class App extends React.Component{
             <Text style={styles.head}>{this.props.route.params==undefined?"":this.props.route.params.data} </Text>
             <Button style={styles.qrCode} title='Get QRCode' onPress={()=>this.props.navigation.navigate('Camera')}>
             </Button>
-           
           </View>
         </View>
+        <Text style={styles.description}>Avec l'appli goStyle, scannez toutes vos promos goStyle {"\n"} puis retrouvez les dans la liste ci-dessous!!</Text>
         <View style={styles.compoList}>
         <LienAPI  qrCode={this.props.route.params==undefined?"":this.props.route.params.data}/>
         </View>
@@ -67,6 +67,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    paddingBottom: '10%',
+  },
+  description: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
     paddingBottom: '10%',
   }
 
