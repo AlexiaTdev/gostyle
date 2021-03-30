@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { Image, ImageBackground, Button, StyleSheet, Text, View } from 'react-native';
 import LienAPI from './pages/lienApi'
-
+/** */
 
 
 class App extends React.Component{
