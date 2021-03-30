@@ -1,5 +1,5 @@
 package com.gostyle;
-
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
@@ -11,6 +11,14 @@ import expo.modules.splashscreen.singletons.SplashScreen;
 import expo.modules.splashscreen.SplashScreenImageResizeMode;
 
 public class MainActivity extends ReactActivity {
+    @Override
+    protected List<ReactPackage> getPackages() {
+        return Arrays.<ReactPackage>asList(
+            new MainReactPackage(),
+           new AsyncStoragePackage()
+        );
+    }
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);

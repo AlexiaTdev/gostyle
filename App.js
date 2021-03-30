@@ -2,17 +2,31 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { Image, ImageBackground, Button, StyleSheet, Text, View } from 'react-native';
 import LienAPI from './pages/lienApi'
-/** */
+import StoreData from './components/StoreData'
+import GetData from './components/GetData'
 
 
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.state = {qrCode:" "};
+    this.state = {qrCode:" ",tab:[]};
+    abc={"abcdef":"abcd"};
+    
   }
 
  
   render(){
+    /*console.log("constru")
+    console.log(abc)
+    StoreData(abc)
+    console.log("end")
+    //this.state.tab=GetData()
+    GetData().then((data)=>{
+      console.log("data")
+      console.log(data)
+    })
+    console.log("tab")
+    console.log(this.state.tab)*/
   return (
     <View style={styles.container}>
       <ImageBackground source={require('./src/home2.jpg')} style={styles.image}>
