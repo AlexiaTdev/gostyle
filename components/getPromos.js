@@ -1,36 +1,34 @@
-import React from 'react'
-import { Text, View, StyleSheet } from 'react-native';
+/*
+** Ce component reçoit le contenu du qrCode via le menu Home
+** Il envoi ensuite une requête GET à l'API de gostyle pour obtenir toutes les données liées à ce code
+** Ces données sont ensuite envoyées au component Promos.js
+*/
 
-const GetPromos = ({ promos }) => {
+import React, { Component } from 'react';
+import Promos from '../components/Promos.js'
 
-    return (
-    <View style={styles.container}>
-        <Text  style={styles.item}>Liste des promos</Text>
-        {promos.map((promo) => (
-        <View style={styles.container}>
-            <Text  style={styles.item}>{promo.codePromo}</Text>
-            <Text  style={styles.item}>{promo.reduction}</Text>
-        </View>
-        ))}
-    </View>
-    )
-};
+class GetPromos extends Component {
+  constructor(props){
+    super(props);  
+  }
+  state = {
+    promos: []
+  }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    item: {
-        padding: 10,
-        fontSize: 18,
-        height: 44,
-        backgroundColor: 'rgba(247,247,247,1.0)',
-      },
-    })
+ 
   
+  render() {
+    fetch('http://192.168.137.1:3000/codepromo/'+this.props.qrCode)
+    .then(res => res.json())
+    .then((data) => {   
+      this.setState({ promos: data })
+    })
+    .catch(console.log)
     
+    return (
+      <Promos promos={this.state.promos} qrCode={this.props.qrCode}/>
+    )
+  }
+}
 
-
-export default GetPromos;
+export default GetPromos

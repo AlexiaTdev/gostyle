@@ -1,10 +1,14 @@
+/* 
+** Ici sont définit toutes les pages de navigations de l'application
+*/
+
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import App from './App';
-import Camera from './components/CameraPage';
+import Home from './View/Home';
+import Camera from './View/CameraPage';
+import ListCode from './View/ListCode';
 
 const Stack = createStackNavigator();
 
@@ -14,17 +18,20 @@ class Router extends React.Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name="App"
-            component={App}
+            name="Home"
+            component={Home}
           />
           <Stack.Screen
             name="Camera"
             component={Camera}
           />
+          <Stack.Screen
+            name="ListCode"
+            component={ListCode}
+          />
         </Stack.Navigator>
       </NavigationContainer>
-    );
+    )
   }
 }
-
 export default Router
