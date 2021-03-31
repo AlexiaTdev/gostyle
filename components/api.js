@@ -14,7 +14,7 @@
     app.use(cors());
     
     app.get('/', (req, res) => {
-    res.send('Hello World!');
+        res.send('Hello World!');
     })
     
     app.listen(port, () => {
@@ -55,11 +55,11 @@
         res.status(201).json(newPromos);
     })
     
-    app.delete('/codepromo/deletePromo', async(req,res)=>{
+    app.delete('/codepromo/deletepromo', async(req,res)=>{
         oldPromos = req.body;
         for(oldPromo of oldPromos)
         {
-            await CodePromo.deleteOne({_id:new ObjectID(oldPromo._id)});
+            await CodePromo.deleteOne({"QRCodePromo":oldPromo.QRCodePromo});
         }
         res.status(200).send("Delete ok");
     })
