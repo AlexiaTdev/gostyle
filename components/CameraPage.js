@@ -33,8 +33,7 @@ export default function CameraPage (props) {
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
-      />
-      
+      />     
       
     </View>
   );

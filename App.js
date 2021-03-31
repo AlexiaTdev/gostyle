@@ -15,41 +15,23 @@ class App extends React.Component{
 
  
   render(){
-    //console.log(abc)
-    /*console.log("constru")
-    console.log(abc)
-    //StoreData(abc)
-    console.log("end")
-
-
-    GetData().then((data)=>{
-      console.log("data")
-      console.log(data)
-      this.state.tab=data
-      console.log("tab")
-    console.log(this.state.tab)
-
-    })*/
-    
-
 
   return (
     <View style={styles.container}>
       <ImageBackground source={require('./src/home2.jpg')} style={styles.image}>
         <View style={styles.container}>
           <View style={styles.containerRow}>
-            <Text style={styles.head}>GO STYLEE! </Text>
+            <Text style={styles.head}>GO STYLEEE! </Text>
             <Text style={styles.head}>{this.props.route.params==undefined?"":this.props.route.params.data} </Text>
-            <Button style={styles.qrCode} title='Get QRCode' onPress={()=>this.props.navigation.navigate('Camera')}>
-            </Button>
+            <Button style={styles.qrCode} title='Get QRCode' onPress={()=>this.props.navigation.navigate('Camera')} />
+            <Button style={styles.qrCode} title='Voir liste' onPress={()=>this.props.navigation.navigate('ListCode')} />
+            
           </View>
         </View>
         <Text style={styles.description}>Avec l'appli goStyle, scannez toutes vos promos goStyle {"\n"} puis retrouvez les dans la liste ci-dessous!!</Text>
         <View style={styles.compoList}>
         <LienAPI  qrCode={this.props.route.params==undefined?"":this.props.route.params.data}/>
         </View>
-        <Image source={require('./src/goutelettes.gif')}></Image>
-        <Image source={require('./src/goutelettes.gif')}></Image>
       </ImageBackground>
     </View>
   )

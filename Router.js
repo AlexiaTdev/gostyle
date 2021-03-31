@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import App from './App';
 import Camera from './components/CameraPage';
-import QRCode from './components/QRCode';
+import ListCode from './components/ListCode';
 
 const Stack = createStackNavigator();
 
@@ -23,8 +23,8 @@ class Router extends React.Component {
             component={Camera}
           />
           <Stack.Screen
-            name="QRCode"
-            component={QRCode}
+            name="ListCode"
+            component={ListCode}
           />
         </Stack.Navigator>
       </NavigationContainer>
