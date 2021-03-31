@@ -5,7 +5,8 @@ const GetPromos = ({ promos }) => {
     return (
     <View style={styles.container}>
         <Text  style={styles.item}>Liste des promos</Text>
-        {promos.map((promo) => (
+        
+        {promos==undefined?  <Text  style={styles.item}></Text>:promos.map((promo) => (
         <View style={styles.container}>
             <Text  style={styles.item}>{promo.codePromo}</Text>
             <Text  style={styles.item}>{promo.reduction}</Text>

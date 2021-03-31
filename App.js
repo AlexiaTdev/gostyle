@@ -4,29 +4,36 @@ import { Image, ImageBackground, Button, StyleSheet, Text, View } from 'react-na
 import LienAPI from './pages/lienApi'
 import StoreData from './components/StoreData'
 import GetData from './components/GetData'
+import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {qrCode:" ",tab:[]};
-    abc={"abcdef":"abcd"};
-    
+    abc={"abc":"abcd"};
   }
 
  
   render(){
-    /*console.log("constru")
+    
+    console.log("constru")
     console.log(abc)
-    StoreData(abc)
+    //StoreData(abc)
     console.log("end")
-    //this.state.tab=GetData()
+
+
     GetData().then((data)=>{
       console.log("data")
       console.log(data)
+      this.state.tab=data
+      console.log("tab")
+    console.log(this.state.tab)
+
     })
-    console.log("tab")
-    console.log(this.state.tab)*/
+    
+
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('./src/home2.jpg')} style={styles.image}>
