@@ -4,7 +4,6 @@ import { Image, ImageBackground, Button, StyleSheet, Text, View } from 'react-na
 import LienAPI from './pages/lienApi'
 import StoreData from './components/StoreData'
 import GetData from './components/GetData'
-import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 class App extends React.Component{
@@ -16,8 +15,8 @@ class App extends React.Component{
 
  
   render(){
-    
-    console.log("constru")
+    //console.log(abc)
+    /*console.log("constru")
     console.log(abc)
     //StoreData(abc)
     console.log("end")
@@ -30,7 +29,7 @@ class App extends React.Component{
       console.log("tab")
     console.log(this.state.tab)
 
-    })
+    })*/
     
 
 
