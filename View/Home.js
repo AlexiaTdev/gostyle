@@ -7,6 +7,7 @@
 import React from 'react';
 import { ImageBackground, Button, StyleSheet, Text, View } from 'react-native';
 import GetPromos from '../components/getPromos'
+import {JetProvider} from '../contexts/CodeContext'
 
 
 class Home extends React.Component{
@@ -19,14 +20,13 @@ class Home extends React.Component{
   render(){
 
   return (
+    <JetProvider>
       <View style={styles.container}>
         <ImageBackground source={require('../src/img/homeBackground.jpg')} style={styles.image}>
           <View style={styles.container}>
             <View style={styles.containerRow}>
               <Text style={styles.head}>GO STYLEEE! </Text>
-              
               <Button style={styles.qrCode} title='Get QRCode' onPress={()=>this.props.navigation.navigate('Camera')} />
-              <Button style={styles.qrCode} title='Voir liste' onPress={()=>this.props.navigation.navigate('ListCode')} />            
             </View>
           </View>
           <Text style={styles.description}>Avec l'appli goStyle, scannez toutes vos promos goStyle {"\n"} puis retrouvez les dans la liste ci-dessous!!</Text>
@@ -35,10 +35,12 @@ class Home extends React.Component{
           </View>
         </ImageBackground>
       </View>
+      </JetProvider>
     )
   }
 }
 //<Text style={styles.head}>{this.props.route.params==undefined?"":this.props.route.params.data} </Text>
+//<Button style={styles.qrCode} title='Voir liste' onPress={()=>this.props.navigation.navigate('ListCode')} />   
 
 const styles = StyleSheet.create({
   container: {

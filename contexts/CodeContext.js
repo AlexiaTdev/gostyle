@@ -1,3 +1,18 @@
-import React from 'react';
+//export const CodeContext = React.createContext();
 
-export const CodeContext = React.createContext();
+import React, { useState, createContext } from 'react';
+
+const JetContext = createContext([]);
+
+function JetProvider(props){
+	
+	const [Jets, setJets] = useState([]);
+	
+	return(
+		<JetContext.Provider value={[Jets,setJets]}>
+			{props.children}
+		</JetContext.Provider>
+	);
+}
+
+export { JetContext, JetProvider };

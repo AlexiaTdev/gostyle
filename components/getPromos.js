@@ -14,6 +14,7 @@ class GetPromos extends Component {
   state = {
     promos: []
   }
+  
 
  
   

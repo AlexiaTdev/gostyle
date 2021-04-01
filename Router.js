@@ -10,12 +10,15 @@ import Home from './View/Home';
 import Camera from './View/CameraPage';
 import ListCode from './View/ListCode';
 
+
 const Stack = createStackNavigator();
 
 class Router extends React.Component {
   render() {
     return (
+      
       <NavigationContainer>
+        
         <Stack.Navigator>
           <Stack.Screen
             name="Home"
@@ -30,7 +33,9 @@ class Router extends React.Component {
             component={ListCode}
           />
         </Stack.Navigator>
+        
       </NavigationContainer>
+
     )
   }
 }

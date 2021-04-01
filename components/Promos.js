@@ -4,64 +4,90 @@
 ** La gestion de l'affichage du dernier code promo est géré dans ce component
 */
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Text, View, StyleSheet, Button } from 'react-native';
 
 import StoreData from './StoreData'
 import GetData from './GetData'
+import {JetContext}  from '../contexts/CodeContext'
 
-const GetPromos = ({ promos },{qrCode}) => {
-
+const GetPromos = ({ promos }) => {
+    const [Jets, setJets] = useContext(JetContext );
     const [myData, setMyData]=useState([])
     const [userId, setUserId] = useState(0)
 
     const upData=(()=>{
         promos.map((promo)=>{
-            myData.push(promo)
+            if (myData.filter((promoList)=> promoList.codePromo== promo.codePromo).length ==0) {
+                myData.push(promo)
+            }
         })
     })
     
-    //useEffect(()=>{
-        const up=()=>{
-        console.log("222")
-        GetData().then((data)=>{
-            console.log("data")
-            console.log(data)
-            setMyData([])
-            console.log("myDatabefore")
-            console.log(myData)
+    
 
+    const up=()=>{
+        setMyData([])
+        setJets([])
+        //console.log("222")
+        
+        GetData().then((data)=>{
+            
+            //console.log("data")
+            //console.log(data)
+            setMyData([])
+            //console.log("myDatabefore")
+            
             if(data==null)
             {}
             else
             {
                 data.map((d)=>{
-                    myData.push(d)
+                    if (!myData.includes(d)) {
+                        console.log("jelajoute")
+                        myData.push(d)
+                    }
                 })
             }
-        
-            console.log("myDataAfter")
-            console.log(myData)
+            //console.log("myDataAfter")
+            //console.log(myData)
+            
             upData()
-            console.log("update")
-          console.log(myData)
+            console.log("myData is ")
+            console.log(myData)
+        //console.log("update")
+        console.log("JETSSSSSSS")
+        setJets(myData);
+        console.log(Jets)
+          
+          
           StoreData(myData)
-          })          
+          }
+          )          
         
+    }
+    const down= () => {
+        setMyData([])
+        setJets([])
+        StoreData([])
+        console.log(Jets)
+        console.log("itsmydata")
+        console.log(myData)
     }
     //,[qrCode])
 
     return (        
     <View style={styles.container}>
-        <Text  style={styles.itemTitle}>Liste des promos{qrCode}</Text>
+        <Text  style={styles.itemTitle}>Liste des promos</Text>
         
-        {promos==undefined?  <Text  style={styles.item}></Text>:promos.map((promo) => (
+        {Jets==undefined?  <Text  style={styles.item}></Text>:Jets.map((promo) => (
         <View style={styles.container} key={promo.codePromo}>
             <Text  style={styles.item}>{promo.codePromo}</Text>
             <Text  style={styles.item}>{promo.reduction}</Text>
         </View>
         ))}
         <Button style={styles.qrCode} title='Add à liste' onPress={()=>up(this)} />
+        <Button style={styles.qrCode} title='flush the list' onPress={()=>down(this)} />
     </View>
     )
 };
@@ -90,4 +116,19 @@ const styles = StyleSheet.create({
     })  
 
 
+    /**
+     * return (        
+    <View style={styles.container}>
+        <Text  style={styles.itemTitle}>Liste des promos</Text>
+        
+        {promos==undefined?  <Text  style={styles.item}></Text>:promos.map((promo) => (
+        <View style={styles.container} key={promo.codePromo}>
+            <Text  style={styles.item}>{promo.codePromo}</Text>
+            <Text  style={styles.item}>{promo.reduction}</Text>
+        </View>
+        ))}
+        <Button style={styles.qrCode} title='Add à liste' onPress={()=>up(this)} />
+    </View>
+    )
+     */
 export default GetPromos;

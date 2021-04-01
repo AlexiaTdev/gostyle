@@ -3,41 +3,23 @@
 ** Cette vie récupére les codes enregistrés via la fonction GetData
 */
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { View, Text, StyleSheet } from 'react-native'
 import GetData from '../components/GetData'
+import {JetContext}  from '../contexts/CodeContext'
 
 export default function ListCode(props){
+  const [Jets, setJets] = useContext(JetContext );
 
-    const [myList, setMyList]=useState([])
-
-    useEffect(()=>{
-        setMyList([])
-        console.log("list1")
-                console.log(myList)
-                console.log("list1")
-        GetData().then((datas)=>{
-            datas.map((data)=>{
-                myList.push(data)
-                console.log("list2")
-                console.log(myList)
-                console.log("list2")
-            })
-        })
-        
-
-    },[])
     return (        
         <View style={styles.container}>
             <Text  style={styles.itemTitle}>Liste des promos</Text>
-            
-            <Text  style={styles.item}>{myList.map((l)=>(
-                <View style={styles.container}>
-                    <Text  style={styles.item}>{l.codePromo}</Text>
-                    <Text  style={styles.item}>{l.reduction}</Text>            
+            <Text  style={styles.item}>{Jets.map((nana)=>(
+                <View style={styles.container} key={nana.codePromo}>
+                    <Text  style={styles.item}>{nana.codePromo}</Text>
+                    <Text  style={styles.item}>{nana.reduction}</Text>            
                 </View>))}
             </Text>
-            
         </View>
         )
     
