@@ -15,22 +15,7 @@ class App extends React.Component{
 
  
   render(){
-    //console.log(abc)
-    /*console.log("constru")
-    console.log(abc)
-    //StoreData(abc)
-    console.log("end")
-
-
-    GetData().then((data)=>{
-      console.log("data")
-      console.log(data)
-      this.state.tab=data
-      console.log("tab")
-    console.log(this.state.tab)
-
-    })*/
-    
+     
 
 
   return (

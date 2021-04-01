@@ -21,8 +21,8 @@ const GetPromos = ({ promos },{qrCode}) => {
         })
     })
     
-    //useEffect(()=>{
-        const up=()=>{
+
+    const up=()=>{
         console.log("222")
         GetData().then((data)=>{
             console.log("data")
@@ -46,17 +46,17 @@ const GetPromos = ({ promos },{qrCode}) => {
             console.log("update")
           console.log(myData)
           StoreData(myData)
-          })          
+        })          
         
     }
-    //,[qrCode])
+
 
     return (        
     <View style={styles.container}>
         <Text  style={styles.itemTitle}>Liste des promos{qrCode}</Text>
         
         {promos==undefined?  <Text  style={styles.item}></Text>:promos.map((promo) => (
-        <View style={styles.container}>
+        <View style={styles.container} key={promo.codePromo}>
             <Text  style={styles.item}>{promo.codePromo}</Text>
             <Text  style={styles.item}>{promo.reduction}</Text>
         </View>
