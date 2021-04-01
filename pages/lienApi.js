@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Promos from '../components/getPromos.js'
+import Promos from '../components/Promos.js'
 
 import StoreData from '../components/StoreData'
 import GetData from '../components/GetData'

@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { ImageBackground, Button, StyleSheet, Text, View } from 'react-native';
-import GetPromos from '../components/GetPromos'
+import GetPromos from '../components/getPromos'
 
 
 class Home extends React.Component{
