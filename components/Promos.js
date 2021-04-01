@@ -56,7 +56,7 @@ const GetPromos = ({ promos },{qrCode}) => {
         <Text  style={styles.itemTitle}>Liste des promos{qrCode}</Text>
         
         {promos==undefined?  <Text  style={styles.item}></Text>:promos.map((promo) => (
-        <View style={styles.container}>
+        <View style={styles.container} key={promo.codePromo}>
             <Text  style={styles.item}>{promo.codePromo}</Text>
             <Text  style={styles.item}>{promo.reduction}</Text>
         </View>

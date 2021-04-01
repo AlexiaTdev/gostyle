@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { ImageBackground, Button, StyleSheet, Text, View } from 'react-native';
-import GetPromos from '../components/GetPromos'
+import GetPromos from '../components/getPromos'
 
 
 class Home extends React.Component{
@@ -24,7 +24,7 @@ class Home extends React.Component{
           <View style={styles.container}>
             <View style={styles.containerRow}>
               <Text style={styles.head}>GO STYLEEE! </Text>
-              <Text style={styles.head}>{this.props.route.params==undefined?"":this.props.route.params.data} </Text>
+              
               <Button style={styles.qrCode} title='Get QRCode' onPress={()=>this.props.navigation.navigate('Camera')} />
               <Button style={styles.qrCode} title='Voir liste' onPress={()=>this.props.navigation.navigate('ListCode')} />            
             </View>
@@ -38,7 +38,7 @@ class Home extends React.Component{
     )
   }
 }
-
+//<Text style={styles.head}>{this.props.route.params==undefined?"":this.props.route.params.data} </Text>
 
 const styles = StyleSheet.create({
   container: {
